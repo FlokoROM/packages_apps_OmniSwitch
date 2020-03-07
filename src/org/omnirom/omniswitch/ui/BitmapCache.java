@@ -55,8 +55,8 @@ public class BitmapCache {
         mContext = context;
         final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
 
-        // Use 1/4rd of the available memory for this memory cache.
-        int cacheSize = maxMemory / 4;
+        // Use 1/3rd of the available memory for this memory cache.
+        int cacheSize = maxMemory / 3;
         if (DEBUG) Log.d(TAG, "maxMemory = " + maxMemory +" cacheSize = " + cacheSize);
 
         mMemoryCache = new LruCache<String, Drawable>(cacheSize) {
