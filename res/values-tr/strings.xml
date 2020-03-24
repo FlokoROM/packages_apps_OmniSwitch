@@ -62,7 +62,7 @@
   <string name="buttons_title">Düğmeler</string>
   <string name="buttons_summary">Yardımcı grafik görünümündeki eylem düğmelerini ayarlayın</string>
   <string name="auto_hide_handle">Kendiliğinden sakla</string>
-  <string name="auto_hide_handle_summary">Yardımcı grafik görünümünü göstermek için iki parmakla kaydırın</string>
+  <string name="auto_hide_handle_summary">Yardımcı grafiği göstermek için iki parmakla kaydırın</string>
   <string name="no_recent_apps_title">Son uygulama yok</string>
   <string name="drag_handle_opacity_title">Şeffaflık</string>
   <string name="drag_handle_enable_title">Devreye sok</string>
@@ -85,8 +85,8 @@
   <string name="speed_switcher_enable_title">Devreye sok</string>
   <string name="back">Geri tuşu</string>
   <string name="back_help">Geri tuşu</string>
-  <string name="kill_current">Mevcûd olanı sona erdir</string>
-  <string name="kill_current_help">Mevcûd uygulamayı sona erdirir</string>
+  <string name="kill_current">Mevcut olanı sona erdir</string>
+  <string name="kill_current_help">Mevcut uygulamayı sona erdirir</string>
   <string name="speed_switch_color_summary">Mavi - son uygulamalar. Yeşil - en sevilenler. Kırmızı - eylemler</string>
   <string name="speed_switch_color">Arka plan renklerini eşit seviyeye getir</string>
   <string name="speed_switch_limit_summary">Seviye değişiklikleri için yeri sınırla</string>
@@ -108,7 +108,7 @@
   <string name="bg_style_transparent">Şeffaf</string>
   <string name="bg_style_title">Arka plan tarzı</string>
   <string name="lock_to_app">Uygulama sabitle</string>
-  <string name="lock_app_help">Mevcûd uygulamayı sabitle</string>
+  <string name="lock_app_help">Mevcut uygulamayı sabitler</string>
   <string name="app_filter_category_title">Uygulama filtresi</string>
   <string name="app_filter_boot_title">Açılıştan itibaren fa’âl</string>
   <string name="layout_style_title">Tarz</string>
@@ -222,5 +222,6 @@
   <string name="camera">Kamera</string>
   <string name="assist">Asistan</string>
   <string name="google_assistant">Google Asistan</string>
-  <string name="system_font_title">Sistem yazı tipini kullan</string>
+  <string name="system_font_summary">Sistemin yazı tipi ailesine uyar</string>
+  <string name="system_font_title">Sistemin yazı tipini kullan</string>
 </resources>

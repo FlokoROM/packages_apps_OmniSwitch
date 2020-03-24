@@ -222,5 +222,6 @@
   <string name="camera">Fotoaparát</string>
   <string name="assist">Asistence</string>
   <string name="google_assistant">Asistent Google</string>
+  <string name="system_font_summary">Postupujte podle rodiny fontů systému</string>
   <string name="system_font_title">Použít systémové písmo</string>
 </resources>

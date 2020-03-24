@@ -20,8 +20,8 @@
   <string name="package_inspect_item_title">Informacje</string>
   <string name="start_on_boot_title">Uruchom przy starcie systemu</string>
   <string name="start_on_boot_summary">Uruchom i aktywuj przy starcie systemu</string>
-  <string name="opacity_title">Nieprzezroczystość</string>
-  <string name="opacity_summary">Nieprzezroczystość tła nakładki widoku</string>
+  <string name="opacity_title">Przezroczystość</string>
+  <string name="opacity_summary">Przezroczystość tła nakładki widoku</string>
   <string name="animate_title">Animacja</string>
   <string name="animate_title_summary">Animuj pokazywanie i ukrywanie nakładki widoku</string>
   <string name="adjust_handle_help">Przesuń i zmień rozmiar pola do przeciągnięcia</string>
@@ -33,8 +33,8 @@
   <string name="cancel">Anuluj</string>
   <string name="drag_handle_color_title">Kolor</string>
   <string name="drag_handle_color_dialog_title">Kolor</string>
-  <string name="service_background_processes"><xliff:g id="memory">%1$s</xliff:g> wolnych</string>
-  <string name="service_foreground_processes"><xliff:g id="memory">%1$s</xliff:g> użytych</string>
+  <string name="service_background_processes"><xliff:g id="memory">%1$s</xliff:g> wolne</string>
+  <string name="service_foreground_processes"><xliff:g id="memory">%1$s</xliff:g> w użyciu</string>
   <string name="show_rambar_title">Pokaż użycie pamięci</string>
   <string name="show_rambar_summary">Wyświetl ilość pamięci wolnej i użytej</string>
   <string name="show_app_labels">Pokaż nazwę aplikacji</string>
@@ -73,7 +73,7 @@
   <string name="dim_behind_summary">Zastosuj krycie do całego ekranu</string>
   <string name="gravity_title">Poziome ustawienie</string>
   <string name="gravity_center">Środek</string>
-  <string name="gravity_drag">Lokalizacja przeciągnika uchwytu</string>
+  <string name="gravity_drag">Lokalizacja uchwytu przeciągania</string>
   <string name="dialog_pick_iconpack_title">Wybierz zestaw ikon</string>
   <string name="default_iconpack_title">Domyślna ikona</string>
   <string name="icon_packs_title">Zestaw ikon</string>
@@ -105,7 +105,7 @@
   <string name="button_pos_bottom">Dół/Prawo</string>
   <string name="bg_style_solid_light">Jasny</string>
   <string name="bg_style_solid_dark">Ciemny</string>
-  <string name="bg_style_transparent">Przeźroczysty</string>
+  <string name="bg_style_transparent">Przezroczysty</string>
   <string name="bg_style_title">Styl tła</string>
   <string name="lock_to_app">Przypnij aplikację</string>
   <string name="lock_app_help">Przypnij obecną aplikację</string>
@@ -142,17 +142,17 @@
   <string name="package_bottom_task_title">Dół</string>
   <string name="package_right_task_title">Prawo</string>
   <string name="package_full_task_title">Pełny rozmiar</string>
-  <string name="shortcut_label_toggle_overlay">Przełącznik nakładki</string>
+  <string name="shortcut_label_toggle_overlay">Przełącz nakładkę</string>
   <string name="adjust_handle_title_new">Skonfiguruj uchwyt przeciągania</string>
   <string name="adjust_handle_summary">Skonfiguruj rozmiar położenia i kolor</string>
   <string name="settings_button_text">Ustawienia</string>
   <string name="wallpaper_button_text">Tapeta</string>
-  <string name="category_launcher_title">Launcher</string>
+  <string name="category_launcher_title">Program uruchamiający</string>
   <string name="launcher_mode_summary">Użyj OmniSwitch jako Launchera. Po włączeniu naciśnij przycisk Home i wybierz OmniSwitch</string>
   <string name="launcher_mode_title">Włącz</string>
   <string name="launcher_mode_enable_check">Wyłączenie nie jest możliwe, gdy aktywny jest tryb uruchamiania</string>
-  <string name="welcome_cling_header">Witamy w trybie Launchera OmniSwitch</string>
-  <string name="welcome_cling_description">Miłej zabawy przy użyciu minimalistycznego Launchera, który skupia się na uruchamianiu i przełączaniu aplikacji. Przesuń palcem w dowolnym miejscu, aby otworzyć OmniSwitch.</string>
+  <string name="welcome_cling_header">Witamy w trybie programu uruchamiającego OmniSwitch</string>
+  <string name="welcome_cling_description">Miłej zabawy przy użyciu minimalistycznego programu uruchamiającego, który skupia się na uruchamianiu i przełączaniu aplikacji. Przesuń palcem w dowolnym miejscu, aby otworzyć OmniSwitch.</string>
   <string name="welcome_cling_dismiss">Zrozumiałem</string>
   <string name="launch_stats_title">Uruchom statystyki</string>
   <string name="launch_stats_summary">Zbieraj statystyki o uruchomionych aplikacjach. Dane nie będą udostępniane, a przechowywane tylko lokalnie</string>
@@ -222,5 +222,6 @@
   <string name="camera">Aparat</string>
   <string name="assist">Asystent</string>
   <string name="google_assistant">Asystent Google</string>
+  <string name="system_font_summary">Użyj czcionkę systemową</string>
   <string name="system_font_title">Użyj czcionki systemowej</string>
 </resources>

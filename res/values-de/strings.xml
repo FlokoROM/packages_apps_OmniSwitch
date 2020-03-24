@@ -222,5 +222,6 @@
   <string name="camera">Kamera</string>
   <string name="assist">Assistent</string>
   <string name="google_assistant">Google-Assistent</string>
+  <string name="system_font_summary">Folge der Schriftart des Systems</string>
   <string name="system_font_title">Systemschriftart verwenden</string>
 </resources>
