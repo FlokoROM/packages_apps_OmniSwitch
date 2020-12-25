@@ -908,7 +908,6 @@ public abstract class AbstractSwitchLayout implements ISwitchLayout {
                 mConfiguration.getPopupMenuStyle());
         final String intentStr = getRecentsItemIntent(ad);
         final PopupMenu popup = new PopupMenu(wrapper, view);
-        popup.setWindowLayoutType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
         popup.getMenuInflater().inflate(R.menu.recent_popup_menu,
                 popup.getMenu());
         boolean addFavEnabled = intentStr != null && !mFavoriteList.contains(intentStr);
