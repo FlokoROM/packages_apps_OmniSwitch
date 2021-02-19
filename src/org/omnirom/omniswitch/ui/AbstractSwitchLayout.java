@@ -792,7 +792,7 @@ public abstract class AbstractSwitchLayout implements ISwitchLayout {
         if (DEBUG) {
             Log.d(TAG, "finishSlideLayoutHide " + mCurrentDistance);
         }
-        if (mCurrentDistance > getCurrentOverlayWidth() / 2) {
+        if (mCurrentDistance > getSlideEndValue() / 2) {
             finishOverlaySlide(false, false);
         } else {
             finishOverlaySlide(true, false);
@@ -803,7 +803,7 @@ public abstract class AbstractSwitchLayout implements ISwitchLayout {
         if (DEBUG) {
             Log.d(TAG, "finishSlideLayout " + mCurrentDistance);
         }
-        if (mCurrentDistance > getCurrentOverlayWidth() / 2) {
+        if (mCurrentDistance > getSlideEndValue() / 2) {
             finishOverlaySlide(true, false);
         } else {
             finishOverlaySlide(false, false);

@@ -19,6 +19,7 @@ package org.omnirom.omniswitch.ui;
 
 import org.omnirom.omniswitch.SwitchConfiguration;
 import org.omnirom.omniswitch.TaskDescription;
+import org.omnirom.omniswitch.ThumbnailData;
 import org.omnirom.omniswitch.Utils;
 import org.omnirom.omniswitch.RecentTasksLoader;
 import org.omnirom.omniswitch.R;
@@ -72,7 +73,7 @@ public class ThumbnailTaskView extends View implements TaskDescription.ThumbChan
     public void setTask(TaskDescription task, boolean reload) {
         mTask = task;
         mTask.setThumbChangeListener(this);
-        Bitmap thumb = getTask().getThumb();
+        ThumbnailData thumb = getTask().getThumb();
         Drawable icon = getTask().getIcon();
 
         if (thumb == null || icon == null || reload) {
@@ -114,7 +115,7 @@ public class ThumbnailTaskView extends View implements TaskDescription.ThumbChan
     }
 
     @Override
-    public void thumbChanged(final int persistentTaskId,  final Bitmap thumb) {
+    public void thumbChanged(final int persistentTaskId) {
         if (getTask() != null){
             if (persistentTaskId == getTask().getPersistentTaskId()) {
                 mHandler.post(new Runnable(){
@@ -161,9 +162,9 @@ public class ThumbnailTaskView extends View implements TaskDescription.ThumbChan
 
     private Bitmap getThumb() {
         if (getTask() != null) {
-            Bitmap thumb = getTask().getThumb();
+            ThumbnailData thumb = getTask().getThumb();
             if (thumb != null) {
-                return thumb;
+                return thumb.thumbnail;
             }
         }
         return getDefaultThumb();

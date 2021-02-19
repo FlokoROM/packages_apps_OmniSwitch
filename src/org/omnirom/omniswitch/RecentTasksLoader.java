@@ -17,6 +17,8 @@
  */
 package org.omnirom.omniswitch;
 
+import static android.graphics.Bitmap.Config.ARGB_8888;
+
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
@@ -37,7 +39,11 @@ import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.GraphicBuffer;
+import android.graphics.Point;
 import android.graphics.drawable.Drawable;
+import android.hardware.HardwareBuffer;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.ParcelFileDescriptor;
@@ -69,14 +75,6 @@ public class RecentTasksLoader {
     private Drawable mDefaultAppIcon;
     private Set<String> mLockedAppsList;
 
-    final static BitmapFactory.Options sBitmapOptions;
-
-    static {
-        sBitmapOptions = new BitmapFactory.Options();
-        sBitmapOptions.inMutable = true;
-        sBitmapOptions.inPreferredConfig = Bitmap.Config.RGB_565;
-    }
-
     private enum State {
         LOADING, IDLE
     };
@@ -105,7 +103,7 @@ public class RecentTasksLoader {
         mActivityManager = (ActivityManager)
                 mContext.getSystemService(Context.ACTIVITY_SERVICE);
         mPackageManager = mContext.getPackageManager();
-        mDefaultThumbnail = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
+        mDefaultThumbnail = Bitmap.createBitmap(1, 1, ARGB_8888);
         mDefaultThumbnail.setHasAlpha(true);
         mDefaultThumbnail.eraseColor(0x00ffffff);
         mHasThumbPermissions = hasSystemPermission(context);
@@ -215,9 +213,6 @@ public class RecentTasksLoader {
         mState = State.LOADING;
         mLoadedTasks.clear();
         mLoadedTasksOriginal.clear();
-        if (withThumbs) {
-            BitmapCache.getInstance(mContext).clearThumbs();
-        }
 
         final long currentTime = SystemClock.elapsedRealtime();
         mLockedAppsList.clear();
@@ -367,7 +362,7 @@ public class RecentTasksLoader {
                             item.setLabel(label);
                         }
                         if (withThumbs) {
-                            Bitmap b = getThumbnail(item.persistentTaskId, true, preloadTaskNum == 0);
+                            ThumbnailData b = getThumbnail(item.persistentTaskId);
                             if (b != null) {
                                 item.setThumb(b, false);
                             }
@@ -389,14 +384,15 @@ public class RecentTasksLoader {
         mTaskLoader.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
-    public Bitmap getThumbnail(int taskId, boolean reducedResolution, boolean firstThumb) {
+    private ThumbnailData getThumbnail(int taskId) {
         try {
-            ActivityManager.TaskSnapshot snapshot = ActivityManager.getService().getTaskSnapshot(taskId, reducedResolution);
+            ActivityManager.TaskSnapshot snapshot = ActivityManager.getService().getTaskSnapshot(taskId, true);
             if (snapshot != null) {
                 if (DEBUG) {
                     Log.d(TAG, "getThumbnail " + taskId);
                 }
-                return Bitmap.wrapHardwareBuffer(snapshot.getSnapshot(), snapshot.getColorSpace());
+                ThumbnailData data = new ThumbnailData(snapshot);
+                return data;
             }
         } catch (RemoteException e) {
             Log.w(TAG, "Failed to retrieve snapshot", e);
@@ -470,7 +466,7 @@ public class RecentTasksLoader {
                     Log.d(TAG, "late load thumb " + td + " " + td.persistentTaskId);
                 }
                 td.setThumbLoading(true);
-                Bitmap b = getThumbnail(td.persistentTaskId, true, false);
+                ThumbnailData b = getThumbnail(td.persistentTaskId);
                 if (b != null) {
                     td.setThumbLoading(false);
                     td.setThumb(b, true);

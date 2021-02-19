@@ -24,7 +24,6 @@ import java.util.List;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ResolveInfo;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 
@@ -39,7 +38,7 @@ public final class TaskDescription {
     private boolean mKilled;
     private ThumbChangeListener mListener;
     private boolean mThumbLoading;
-    private Bitmap mThumb;
+    private ThumbnailData mThumb;
     private String mLabel;
     private boolean mLocked;
     private boolean mNeedsUpdate;
@@ -50,7 +49,7 @@ public final class TaskDescription {
     private boolean mMultiWindowMode;
 
     public static interface ThumbChangeListener {
-        public void thumbChanged(int pesistentTaskId, Bitmap thumb);
+        public void thumbChanged(int pesistentTaskId);
         public int getPersistentTaskId();
     }
 
@@ -119,7 +118,7 @@ public final class TaskDescription {
         return intent.toString();
     }
 
-    public void setThumb(Bitmap thumb, boolean callListener) {
+    public void setThumb(ThumbnailData thumb, boolean callListener) {
         mThumb = thumb;
         if (callListener) {
             callListener();
@@ -134,7 +133,7 @@ public final class TaskDescription {
         if (mListener != null) {
             // only call back if the listener is still the one attached to us
             if (mListener.getPersistentTaskId() == persistentTaskId) {
-                mListener.thumbChanged(persistentTaskId, mThumb);
+                mListener.thumbChanged(persistentTaskId);
             }
         }
     }
@@ -147,7 +146,7 @@ public final class TaskDescription {
         this.mThumbLoading = thumbLoading;
     }
 
-    public Bitmap getThumb() {
+    public ThumbnailData getThumb() {
         return mThumb;
     }
 

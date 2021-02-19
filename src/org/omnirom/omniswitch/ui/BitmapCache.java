@@ -41,7 +41,6 @@ public class BitmapCache {
     private static BitmapCache sInstance;
     private Context mContext;
     private LruCache<String, Drawable> mMemoryCache;
-    private HashMap<String, Drawable> mThumbnailMap;
     private final IconDrawableFactory mDrawableFactory;
 
     public static BitmapCache getInstance(Context context) {
@@ -74,17 +73,12 @@ public class BitmapCache {
             protected void entryRemoved(boolean evicted, String key, Drawable oldValue, Drawable newValue){
             }
         };
-        mThumbnailMap = new HashMap<String, Drawable>(25);
         mDrawableFactory = IconDrawableFactory.newInstance(mContext);
     }
 
     public void clear() {
         if (DEBUG) Log.d(TAG, "clear");
         mMemoryCache.evictAll();
-    }
-
-    public void clearThumbs() {
-        mThumbnailMap.clear();
     }
 
     private String bitmapHash(Intent intent, int iconSize) {
@@ -145,15 +139,5 @@ public class BitmapCache {
 
     public Drawable getBitmapFromMemCache(String key) {
         return mMemoryCache.get(key);
-    }
-
-    public Drawable getSharedThumbnail(TaskDescription ad) {
-        String key = String.valueOf(ad.getPersistentTaskId());
-        return mThumbnailMap.get(key);
-    }
-
-    public void putSharedThumbnail(TaskDescription ad, Drawable thumb) {
-        String key = String.valueOf(ad.getPersistentTaskId());
-        mThumbnailMap.put(key, thumb);
     }
 }
