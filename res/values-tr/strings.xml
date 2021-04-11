@@ -224,4 +224,5 @@
   <string name="google_assistant">Google Asistan</string>
   <string name="system_font_summary">Sistemin yazı tipi ailesine uyar</string>
   <string name="system_font_title">Sistemin yazı tipini kullan</string>
+  <string name="flashlight">El Feneri</string>
 </resources>

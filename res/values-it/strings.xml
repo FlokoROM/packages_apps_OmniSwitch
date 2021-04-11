@@ -205,4 +205,24 @@
   <string name="pref_show_events_title">Mostra i prossimi eventi</string>
   <string name="color_task_header_summary">Utilizza il colore primario dell\'applicazione come sfondo dell\'intestazione</string>
   <string name="color_task_header_title">Colore intestazione delle attività</string>
+  <string name="icon_shape_system_default">Usa impostazione predefinita di sistema</string>
+  <string name="icon_shape_square">Quadrato</string>
+  <string name="icon_shape_squircle">Squircle</string>
+  <string name="icon_shape_circle">Cerchio</string>
+  <string name="icon_shape_teardrop">Goccia</string>
+  <string name="icon_shape_rounded_square">Quadrato arrotondato</string>
+  <string name="icon_shape_title">Forma dell\'icona - è necessario riavviare</string>
+  <string name="icon_shape_override_progress">Applicazione delle modifiche alla forma delle icone</string>
+  <string name="category_icons_title">Icone</string>
+  <string name="bottom_favorites_summary">Riempi l\'elenco delle applicazioni preferite dal basso</string>
+  <string name="bottom_favorites_title">App preferite in basso</string>
+  <string name="button_hide_summary">Nascondi l\'area dei pulsanti</string>
+  <string name="button_hide_title">Nascondi pulsanti</string>
+  <string name="phone">Telefono</string>
+  <string name="camera">Fotocamera</string>
+  <string name="assist">Assistente</string>
+  <string name="google_assistant">Assistente Google</string>
+  <string name="system_font_summary">Segui la famiglia di caratteri del sistema</string>
+  <string name="system_font_title">Usa carattere di sistema</string>
+  <string name="flashlight">Torcia</string>
 </resources>

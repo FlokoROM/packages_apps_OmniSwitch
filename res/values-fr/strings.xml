@@ -222,4 +222,7 @@
   <string name="camera">Caméra</string>
   <string name="assist">Assistance</string>
   <string name="google_assistant">Assistant Google</string>
+  <string name="system_font_summary">Suivez la famille de polices du système</string>
+  <string name="system_font_title">Utiliser la police system</string>
+  <string name="flashlight">Lampe de poche</string>
 </resources>

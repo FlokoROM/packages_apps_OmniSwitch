@@ -48,7 +48,7 @@
   <string name="favorite_add">追加\u2026</string>
   <string name="location_left">左</string>
   <string name="location_right">右</string>
-  <string name="reset">デフォルト</string>
+  <string name="reset">既定</string>
   <string name="toggle_last_app">最後に使用したアプリ</string>
   <string name="toggle_last_app_help">最後に使用したアプリに切り替える</string>
   <string name="kill_all_apps_help">全てのアプリを終了する</string>
@@ -75,7 +75,7 @@
   <string name="gravity_center">中央</string>
   <string name="gravity_drag">ドラッグハンドル側</string>
   <string name="dialog_pick_iconpack_title">アイコンパックを選択</string>
-  <string name="default_iconpack_title">デフォルトアイコン</string>
+  <string name="default_iconpack_title">既定のアイコン</string>
   <string name="icon_packs_title">アイコンパック</string>
   <string name="no_iconpacks_summary">アイコンパックがインストールされていません</string>
   <string name="icon_pack_title">アイコンパック</string>
@@ -148,11 +148,11 @@
   <string name="settings_button_text">設定</string>
   <string name="wallpaper_button_text">壁紙</string>
   <string name="category_launcher_title">ランチャー</string>
-  <string name="launcher_mode_summary">OmniSwitchをホームアプリとして使用します。有効にしたあとホームボタンを押してOmniSwitchを選択してください</string>
+  <string name="launcher_mode_summary">OmniSwitchをホームアプリとして使用します。有効にしたあとホームボタンを押してOmniSwitchを選択して下さい。</string>
   <string name="launcher_mode_title">有効にする</string>
   <string name="launcher_mode_enable_check">ランチャーモードがアクティブな間は無効にすることはできません</string>
   <string name="welcome_cling_header">OmniSwitch ランチャー モードへようこそ</string>
-  <string name="welcome_cling_description">アプリの起動や切り替えに重点を置いたミニマルなランチャーをお楽しみください。 設定している側であれば、画面端のどの位置からスワイプしても OmniSwitch を開くことができます。</string>
+  <string name="welcome_cling_description">アプリの起動や切り替えに重点を置いたシンプルなランチャーをお楽しみ下さい。設定している側であれば、画面端のどの位置からスワイプしても OmniSwitch を開くことができます。</string>
   <string name="welcome_cling_dismiss">OK</string>
   <string name="launch_stats_title">起動アプリ統計</string>
   <string name="launch_stats_summary">起動したアプリの統計を収集します。統計データはローカルに保存されアップロードされることはありません</string>
@@ -180,7 +180,7 @@
   <string name="dock_non_resizeble_failed_to_dock_text">アプリは画面分割をサポートしていません</string>
   <string name="block_apps_on_splitscreen_summary">分割画面モードでサポートされていないアプリへの切り替えは無効となります</string>
   <string name="block_apps_on_splitscreen_title">画面分割表示できないアプリをブロック</string>
-  <string name="use_power_hint_summary">Power HALドライバの命令を使用し速度を上げる。端末に依存します。</string>
+  <string name="use_power_hint_summary">Power HAL ドライバの命令を使用し速度を上げます。端末に依存します。</string>
   <string name="use_power_hint_title">電源のヒントを使用</string>
   <string name="hidden_apps_config_summary">アプリドロワー表示での非表示アプリを決定する</string>
   <string name="hidden_apps_config_title">非表示のアプリ</string>
@@ -224,4 +224,5 @@
   <string name="google_assistant">Google アシスタント</string>
   <string name="system_font_summary">システムのフォントファミリーに従う</string>
   <string name="system_font_title">システムフォントを使用</string>
+  <string name="flashlight">フラッシュライト</string>
 </resources>

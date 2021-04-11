@@ -205,4 +205,24 @@
   <string name="pref_show_events_title">Zobraziť nadchádzajúce udalosti</string>
   <string name="color_task_header_summary">Použiť hlavnú farbu aplikácie ako pozadie záhlavia</string>
   <string name="color_task_header_title">Farba záhlavia úloh</string>
+  <string name="icon_shape_system_default">Použiť predvolené nastavenie systému</string>
+  <string name="icon_shape_square">Štvorec</string>
+  <string name="icon_shape_squircle">Hranatý kruh</string>
+  <string name="icon_shape_circle">Kruh</string>
+  <string name="icon_shape_teardrop">Slza</string>
+  <string name="icon_shape_rounded_square">Zaoblený štvorec</string>
+  <string name="icon_shape_title">Tvar ikony — vyžaduje sa reštart</string>
+  <string name="icon_shape_override_progress">Tvar ikony sa mení</string>
+  <string name="category_icons_title">Ikony</string>
+  <string name="bottom_favorites_summary">Vyplniť zoznam obľúbených aplikácií odspodu</string>
+  <string name="bottom_favorites_title">Obľúbené aplikácie na spodu</string>
+  <string name="button_hide_summary">Skryť oblasť tlačidiel</string>
+  <string name="button_hide_title">Ukryť tlačidlá</string>
+  <string name="phone">Telefón</string>
+  <string name="camera">Fotoaparát</string>
+  <string name="assist">Asistencia</string>
+  <string name="google_assistant">Asistent Google</string>
+  <string name="system_font_summary">Postupujte podľa rodiny fontov systému</string>
+  <string name="system_font_title">Použiť systémové písmo</string>
+  <string name="flashlight">Svietidlo</string>
 </resources>
