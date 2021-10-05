@@ -21,7 +21,6 @@ import static android.app.WindowConfiguration.WINDOWING_MODE_UNDEFINED;
 import static android.content.res.Configuration.ORIENTATION_UNDEFINED;
 import static android.graphics.Bitmap.Config.ARGB_8888;
 
-import android.app.ActivityManager.TaskSnapshot;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.GraphicBuffer;
@@ -29,6 +28,7 @@ import android.graphics.Point;
 import android.graphics.Rect;
 import android.hardware.HardwareBuffer;
 import android.util.Log;
+import android.window.TaskSnapshot;
 
 /**
  * Data for a single thumbnail.
@@ -36,7 +36,7 @@ import android.util.Log;
 public class ThumbnailData {
     private static final String TAG = "ThumbnailData";
 
-    public final Bitmap thumbnail;
+    public Bitmap thumbnail;
     public int orientation;
     public int rotation;
     public Rect insets;
@@ -44,7 +44,6 @@ public class ThumbnailData {
     public boolean isRealSnapshot;
     public boolean isTranslucent;
     public int windowingMode;
-    public int systemUiVisibility;
     public float scale;
     public long snapshotId;
 
@@ -58,21 +57,16 @@ public class ThumbnailData {
         isRealSnapshot = true;
         isTranslucent = false;
         windowingMode = WINDOWING_MODE_UNDEFINED;
-        systemUiVisibility = 0;
         snapshotId = 0;
     }
 
     public ThumbnailData(TaskSnapshot snapshot) {
-        final GraphicBuffer buffer = snapshot.getSnapshot();
-        if (buffer == null || (buffer.getUsage() & HardwareBuffer.USAGE_GPU_SAMPLED_IMAGE) == 0) {
-            // TODO(b/157562905): Workaround for a crash when we get a snapshot without this state
-            Log.e(TAG, "Unexpected snapshot without USAGE_GPU_SAMPLED_IMAGE: "
-                    + buffer);
+        thumbnail = Bitmap.wrapHardwareBuffer(
+                snapshot.getHardwareBuffer(), snapshot.getColorSpace());
+        if (thumbnail == null) {
             Point taskSize = snapshot.getTaskSize();
             thumbnail = Bitmap.createBitmap(taskSize.x, taskSize.y, ARGB_8888);
             thumbnail.eraseColor(Color.BLACK);
-        } else {
-            thumbnail = Bitmap.wrapHardwareBuffer(buffer, snapshot.getColorSpace());
         }
         insets = new Rect(snapshot.getContentInsets());
         orientation = snapshot.getOrientation();
@@ -84,7 +78,6 @@ public class ThumbnailData {
         isRealSnapshot = snapshot.isRealSnapshot();
         isTranslucent = snapshot.isTranslucent();
         windowingMode = snapshot.getWindowingMode();
-        systemUiVisibility = snapshot.getSystemUiVisibility();
         snapshotId = snapshot.getId();
     }
 }

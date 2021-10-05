@@ -32,7 +32,6 @@ public final class TaskDescription {
     final int taskId; // application task id for curating apps
     final int persistentTaskId; // persistent id
     final Intent intent; // launch intent for application
-    final int stackId;
     private Drawable mIcon; // application package icon
     private boolean mIsActive;
     private boolean mKilled;
@@ -55,12 +54,11 @@ public final class TaskDescription {
 
     public TaskDescription(int _taskId, int _persistentTaskId,
             ResolveInfo _resolveInfo, Intent _intent,
-            int _stackId, boolean supportsSplitScreen, boolean multiWindowMode) {
+            boolean supportsSplitScreen, boolean multiWindowMode) {
         resolveInfo = _resolveInfo;
         intent = _intent;
         taskId = _taskId;
         persistentTaskId = _persistentTaskId;
-        stackId = _stackId;
         mSupportsSplitScreen = supportsSplitScreen;
         mMultiWindowMode = multiWindowMode;
     }
@@ -83,10 +81,6 @@ public final class TaskDescription {
 
     public int getPersistentTaskId() {
         return persistentTaskId;
-    }
-
-    public int getStackId() {
-        return stackId;
     }
 
     public void setLabel(String label) {
