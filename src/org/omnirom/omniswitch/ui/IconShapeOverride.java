@@ -31,7 +31,6 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -99,7 +98,6 @@ public class IconShapeOverride {
             mOverrideValue = overrideValue;
         }
 
-        @NonNull
         @Override
         public String getString(int id) throws NotFoundException {
             if (id == mOverrideId && !TextUtils.isEmpty(mOverrideValue)) {
