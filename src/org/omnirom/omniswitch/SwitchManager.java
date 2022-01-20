@@ -29,8 +29,6 @@ import org.omnirom.omniswitch.ui.SwitchLayout;
 import org.omnirom.omniswitch.ui.SwitchLayoutVertical;
 
 import android.app.ActivityManager;
-import static android.app.ActivityTaskManager.SPLIT_SCREEN_CREATE_MODE_BOTTOM_OR_RIGHT;
-import static android.app.ActivityTaskManager.SPLIT_SCREEN_CREATE_MODE_TOP_OR_LEFT;
 import android.app.ActivityManagerNative;
 import android.app.ActivityOptions;
 import android.app.ActivityTaskManager;
@@ -214,7 +212,7 @@ public class SwitchManager {
                         ad.getPersistentTaskId(),  options.toBundle());
             SwitchStatistics.getInstance(mContext).traceStartIntent(ad.getIntent());
             if (DEBUG){
-                Log.d(TAG, "switch to " + ad.getLabel() + " " + ad.getStackId());
+                Log.d(TAG, "switch to " + ad.getLabel());
             }
         } catch (Exception e) {
         }
@@ -594,21 +592,21 @@ public class SwitchManager {
 
     public void startBoost() {
         if (mConfiguration.mUsePowerHint) {
-            try {
+            /*try {
                 // TODO 8 is the POWER_HINT_LAUNCH but there is no way to access this from here
                 mPowerService.powerHint(8, 1);
             } catch (RemoteException e){
-            }
+            }*/
         }
     }
 
     public void stopBoost() {
         if (mConfiguration.mUsePowerHint) {
-            try {
+            /*try {
                 // TODO 8 is the POWER_HINT_LAUNCH
                 mPowerService.powerHint(8, 0);
             } catch (RemoteException e){
-            }
+            }*/
         }
     }
 
@@ -642,9 +640,6 @@ public class SwitchManager {
     private ActivityOptions makeSplitScreenOptions(boolean dockTopLeft) {
         final ActivityOptions options = ActivityOptions.makeBasic();
         options.setLaunchWindowingMode(WINDOWING_MODE_SPLIT_SCREEN_PRIMARY);
-        options.setSplitScreenCreateMode(dockTopLeft
-                ? SPLIT_SCREEN_CREATE_MODE_TOP_OR_LEFT
-                : SPLIT_SCREEN_CREATE_MODE_BOTTOM_OR_RIGHT);
         return options;
     }
 }

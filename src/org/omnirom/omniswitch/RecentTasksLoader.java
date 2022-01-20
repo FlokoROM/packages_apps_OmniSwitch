@@ -30,6 +30,7 @@ import org.omnirom.omniswitch.ui.BitmapUtils;
 import org.omnirom.omniswitch.ui.IconPackHelper;
 
 import android.app.ActivityManager;
+import android.app.ActivityTaskManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -51,6 +52,7 @@ import android.os.Process;
 import android.os.RemoteException;
 import android.os.SystemClock;
 import android.util.Log;
+import android.window.TaskSnapshot;
 
 public class RecentTasksLoader {
     private static final String TAG = "RecentTasksLoader";
@@ -123,7 +125,7 @@ public class RecentTasksLoader {
     }
 
     // Create an TaskDescription, returning null if the title or icon is null
-    TaskDescription createTaskDescription(int taskId, int persistentTaskId, int stackId,
+    TaskDescription createTaskDescription(int taskId, int persistentTaskId,
             Intent baseIntent, ComponentName origActivity, boolean supportsSplitScreenMultiWindow,
             boolean multiWindowMode) {
         // clear source bounds to find matching package intent
@@ -139,7 +141,7 @@ public class RecentTasksLoader {
             if (DEBUG)
                 Log.v(TAG, "creating activity desc for id=" + persistentTaskId);
             TaskDescription ad = new TaskDescription(taskId,
-                    persistentTaskId, resolveInfo, baseIntent, stackId,
+                    persistentTaskId, resolveInfo, baseIntent,
                     supportsSplitScreenMultiWindow, multiWindowMode);
             return ad;
         }
@@ -271,7 +273,7 @@ public class RecentTasksLoader {
                         Log.d(TAG, "" + i + " recent item = " + recentInfo.baseIntent + " " + recentInfo.taskDescription.getLabel());
                     }
                     TaskDescription item = createTaskDescription(recentInfo.id,
-                            recentInfo.persistentId, recentInfo.stackId,
+                            recentInfo.persistentId,
                             recentInfo.baseIntent, recentInfo.origActivity,
                             recentInfo.supportsSplitScreenMultiWindow,
                             android.app.WindowConfiguration.inMultiWindowMode(
@@ -386,7 +388,7 @@ public class RecentTasksLoader {
 
     private ThumbnailData getThumbnail(int taskId) {
         try {
-            ActivityManager.TaskSnapshot snapshot = ActivityManager.getService().getTaskSnapshot(taskId, true);
+            TaskSnapshot snapshot = ActivityTaskManager.getService().getTaskSnapshot(taskId, true);
             if (snapshot != null) {
                 if (DEBUG) {
                     Log.d(TAG, "getThumbnail " + taskId);

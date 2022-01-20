@@ -17,13 +17,12 @@
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
-LOCAL_STATIC_JAVA_LIBRARIES = android-support-v4
+LOCAL_STATIC_JAVA_LIBRARIES = androidx.core_core
 LOCAL_SRC_FILES := $(call all-subdir-java-files)
 LOCAL_PACKAGE_NAME := OmniSwitch
 LOCAL_CERTIFICATE := platform
 LOCAL_PRIVILEGED_MODULE := true
 LOCAL_MODULE_TAGS := optional
-LOCAL_MIN_SDK_VERSION := 25
 LOCAL_PRIVATE_PLATFORM_APIS := true
 #LOCAL_DEX_PREOPT := false
 LOCAL_REQUIRED_MODULES := privapp_whitelist_org.omnirom.omniswitch.xml

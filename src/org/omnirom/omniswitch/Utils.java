@@ -438,13 +438,13 @@ public class Utils {
     }
 
     public static  void toggleTorch(Context context) {
-        IStatusBarService service = IStatusBarService.Stub.asInterface(ServiceManager.getService("statusbar"));
+        /*IStatusBarService service = IStatusBarService.Stub.asInterface(ServiceManager.getService("statusbar"));
         if (service != null) {
             try {
                 service.toggleCameraFlash();
             } catch (RemoteException e) {
                 // do nothing.
             }
-        }
+        }*/
     }
 }

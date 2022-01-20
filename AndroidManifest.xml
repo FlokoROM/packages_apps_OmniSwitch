@@ -40,9 +40,6 @@
     <protected-broadcast android:name="org.omnirom.omniswitch.ACTION_PRELOAD_TASKS" />
     <protected-broadcast android:name="org.omnirom.omniswitch.ACTION_HIDE_OVERLAY" />
 
-    <uses-sdk
-        android:minSdkVersion="25"
-        android:targetSdkVersion="25" />
     <application
         android:name=".OmniSwitch"
         android:icon="@mipmap/ic_launcher"
@@ -52,8 +49,10 @@
         android:allowBackup="true" >
         <service
             android:name="org.omnirom.omniswitch.SwitchService"
-            android:configChanges="orientation|screenSize|uiMode" />
-        <receiver android:name="org.omnirom.omniswitch.SwitchService$RecentsReceiver" >
+            android:configChanges="orientation|screenSize|uiMode"
+            android:exported="false" />
+        <receiver android:name="org.omnirom.omniswitch.SwitchService$RecentsReceiver"
+                  android:exported="true" >
             <intent-filter>
                 <action android:name="org.omnirom.omniswitch.ACTION_TOGGLE_OVERLAY" />
                 <action android:name="org.omnirom.omniswitch.ACTION_TOGGLE_OVERLAY2" />
@@ -65,15 +64,16 @@
         <activity
             android:name="org.omnirom.omniswitch.SettingsActivity"
             android:launchMode="singleInstance"
-            android:theme="@style/SettingsTheme" >
+            android:theme="@style/SettingsTheme"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="org.omnirom.omniswitch.ToggleActivity" >
+            android:name="org.omnirom.omniswitch.ToggleActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.CREATE_SHORTCUT" />
@@ -84,18 +84,21 @@
             android:name="org.omnirom.omniswitch.PlaceholderActivity"
             android:launchMode="singleInstance"
             android:excludeFromRecents="true"
-            android:theme="@style/PlaceholderTheme" >
+            android:theme="@style/PlaceholderTheme"
+            android:exported="false" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <receiver android:name="org.omnirom.omniswitch.BootReceiver" >
+        <receiver android:name="org.omnirom.omniswitch.BootReceiver"
+                  android:exported="false" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name="org.omnirom.omniswitch.PackageReceiver" >
+        <receiver android:name="org.omnirom.omniswitch.PackageReceiver"
+                  android:exported="false" >
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_CHANGED" />
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
@@ -104,7 +107,8 @@
             </intent-filter>
         </receiver>
         <!-- to update labels -->
-        <receiver android:name="org.omnirom.omniswitch.LocaleChangeReceiver">
+        <receiver android:name="org.omnirom.omniswitch.LocaleChangeReceiver"
+                  android:exported="false" >
             <intent-filter>
                 <action android:name="android.intent.action.LOCALE_CHANGED"/>
             </intent-filter>
@@ -118,7 +122,8 @@
             android:taskAffinity=""
             android:theme="@style/LauncherTheme"
             android:enabled="false"
-            android:configChanges="orientation|screenSize" >
+            android:configChanges="orientation|screenSize"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.HOME" />
